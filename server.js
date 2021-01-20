@@ -20,7 +20,7 @@ app
   .delete(booksController.delete)
   .put(booksController.update)
 
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log('Server is up and running...')
 })
 
