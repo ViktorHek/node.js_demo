@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const {BooksController} = require('./BooksController')
+const { booksController } = require('./BooksController')
 
 const app = express()
 
@@ -11,8 +11,14 @@ app.use(cors())
 
 app
   .route('/books')
-  .get(BooksController.getBooks)
-  .post(BooksController.addBook)
+  .get(booksController.index)
+  .post(booksController.create)
+
+app
+  .route('/books/:id')
+  .get(booksController.show)
+  .delete(booksController.delete)
+  .put(booksController.update)
 
 app.listen(3001, () => {
   console.log('Server is up and running...')
