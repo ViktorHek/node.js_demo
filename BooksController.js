@@ -1,4 +1,5 @@
 const { pool } = require('./config')
+const {wsServer, WebSocket} = require('./wsConfig')
 
 const booksController = {
   async index(request, response, next) {
@@ -16,6 +17,18 @@ const booksController = {
       await pool.query(
         'INSERT INTO books (author, title) VALUES ($1, $2)', 
         [author, title])
+        wsServer.clients.forEach(client => {
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(
+              JSON.stringify({
+                book: {
+                  title: title,
+                  author: author
+                }
+              })
+            )
+          }
+        })
       response
         .status(201)
         .json({ message: 'You just created a book buddy!' })
