@@ -1,0 +1,30 @@
+{
+  "books":[
+    {
+      "id":2,
+      "author":"Boddy Bob",
+      "title":"Awsom Book"
+    },
+    {
+      "id":1,
+      "author":"J.K. Rowling",
+      "title":"Harry Potter"
+    },
+    {
+      "id":7,
+      "author":"V. Karl",
+      "title":"How to be a god"
+    },
+    {
+      "id":8,
+      "author":"H. Hans",
+      "title":"How to be Mozart"
+    },
+    {
+      "id":3,
+      "author":"G. Fox",
+      "title":"How to update a book again"
+    }
+  ]
+}
+

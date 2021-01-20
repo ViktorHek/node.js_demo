@@ -13,11 +13,12 @@ const booksController = {
   async create(request, response, next) {
     try {
       const { author, title } = request.body
-      await pool.query('INSERT INTO books (author, title) VALUES ($1, $2)', [
-        author,
-        title,
-      ])
-      response.status(201).json({ message: 'You just created a book buddy!' })
+      await pool.query(
+        'INSERT INTO books (author, title) VALUES ($1, $2)', 
+        [author, title])
+      response
+        .status(201)
+        .json({ message: 'You just created a book buddy!' })
     } catch (error) {
       console.log(error)
     }
